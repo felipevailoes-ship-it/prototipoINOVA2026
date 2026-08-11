@@ -1,4 +1,3 @@
-// LatiControl — Protótipo Completo B2B2C
 // Painel Web (Administrador) + App Mobile (Promotor de Vendas)
 
 import { useState, useMemo } from "react";
@@ -220,11 +219,12 @@ type WebPage = "dashboard" | "colaboradores" | "usuarios" | "clientes" | "produt
 
 const WEB_NAV = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { id: "colaboradores", label: "Colaboradores", icon: Users },
-  { id: "usuarios", label: "Usuários do Sistema", icon: KeyRound },
   { id: "clientes", label: "Clientes", icon: Building2 },
   { id: "produtos", label: "Produtos", icon: Tag },
   { id: "lotes", label: "Controle de Lotes", icon: Layers },
+  { id: "colaboradores", label: "Colaboradores", icon: Users },
+  { id: "usuarios", label: "Usuários do Sistema", icon: KeyRound },
+  
 ] as const;
 
 function WebSidebar({ page, onPage, onLogout }: { page: WebPage; onPage: (p: WebPage) => void; onLogout: () => void }) {
@@ -1465,7 +1465,7 @@ function InterfaceSelector({ onSelect }: { onSelect: (v: "web" | "mobile") => vo
       <div className="text-center mb-10">
         <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-2xl"><ShoppingBag size={30} className="text-white" /></div>
         <h1 className="text-3xl font-bold text-white mb-2">LatiControl</h1>
-        <p className="text-slate-400 text-sm max-w-sm mx-auto">Plataforma de gestão de validade de lotes em pontos de venda</p>
+        <p className="text-slate-400 text-sm max-w-sm mx-auto">Plataforma de gestão de lotes em pontos de venda</p>
       </div>
       <p className="text-slate-500 text-xs uppercase tracking-widest mb-6 font-semibold">Selecione o ambiente para demonstração</p>
       <div className="flex gap-4 w-full max-w-2xl">
@@ -1473,26 +1473,16 @@ function InterfaceSelector({ onSelect }: { onSelect: (v: "web" | "mobile") => vo
           <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-500/30 transition-colors"><Monitor size={24} className="text-purple-300" /></div>
           <h2 className="text-white font-bold text-lg mb-1">Painel Web</h2>
           <p className="text-slate-400 text-sm mb-4 leading-relaxed">Gestão completa de colaboradores, usuários, clientes, produtos e lotes. Acesso do Administrador.</p>
-          <div className="flex flex-col gap-1.5 mb-5">
-            {["Dashboard com KPIs e gráficos", "CRUD completo de todas entidades", "Filtros avançados no controle de lotes", "Soft delete com toggle Ativo/Inativo"].map(f => (
-              <p key={f} className="text-xs text-slate-400 flex items-center gap-2"><Check size={11} className="text-purple-400 shrink-0" />{f}</p>
-            ))}
-          </div>
           <div className="flex items-center gap-2 text-purple-300 text-sm font-semibold group-hover:translate-x-1 transition-transform"><span>Acessar Painel</span><ArrowRight size={16} /></div>
         </button>
         <button onClick={() => onSelect("mobile")} className="flex-1 group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-400/40 rounded-2xl p-6 text-left transition-all duration-200">
           <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-500/30 transition-colors"><Smartphone size={24} className="text-blue-300" /></div>
           <h2 className="text-white font-bold text-lg mb-1">App Mobile</h2>
           <p className="text-slate-400 text-sm mb-4 leading-relaxed">Interface do Promotor de Vendas em campo. Monitoramento de alertas, visitas e baixa de estoque.</p>
-          <div className="flex flex-col gap-1.5 mb-5">
-            {["Central de alertas por urgência", "Carteira de clientes atribuída", "Botão 'Marcar como Esgotado'", "Timeline de observações de campo"].map(f => (
-              <p key={f} className="text-xs text-slate-400 flex items-center gap-2"><Check size={11} className="text-blue-400 shrink-0" />{f}</p>
-            ))}
-          </div>
           <div className="flex items-center gap-2 text-blue-300 text-sm font-semibold group-hover:translate-x-1 transition-transform"><span>Acessar App Mobile</span><ArrowRight size={16} /></div>
         </button>
       </div>
-      <p className="text-slate-600 text-xs mt-8">MVP Fase 1 — Protótipo de validação</p>
+      <p className="text-slate-600 text-xs mt-8">Protótipo de validação</p>
     </div>
   );
 }
