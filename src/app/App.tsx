@@ -1053,9 +1053,8 @@ function AlertasScreen({ lots, clients, products, colaboradores, loggedInColId, 
               return (
                 <div key={clientId} className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
                   <button onClick={() => navigate({ name: "clientedetail", clientId })} className="w-full flex items-center gap-2.5 px-4 py-3 border-b border-slate-100 active:bg-slate-50 text-left">
-                    <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${dotColor}`} />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-bold text-slate-800 truncate">{client.name}</p>
+                      <p className="text-base font-bold text-slate-800 truncate">{client.name}</p>
                       <p className="text-xs text-slate-400">{client.contactName} · {client.contact}</p>
                     </div>
                     <ChevronRight size={14} className="text-slate-300 shrink-0" />
@@ -1143,7 +1142,7 @@ function MeusClientesScreen({ clients, lots, loggedInColId, navigate }: { client
                 </div>
               </div>
               <div className="flex flex-col items-end gap-1.5 shrink-0">
-                {client.status === "Inativo" ? <span className="text-[10px] bg-slate-100 text-slate-500 font-semibold px-1.5 py-0.5 rounded">Inativo</span> : <span className={`w-2.5 h-2.5 rounded-full ${dotColor[worst]}`} />}
+                {client.status === "Inativo" ? <span className="text-[10px] bg-slate-100 text-slate-500 font-semibold px-1.5 py-0.5 rounded">Inativo</span> : <span className={``} />}
                 {activeCount > 0 && <span className="text-[10px] text-slate-400">{activeCount} lote{activeCount > 1 ? "s" : ""}</span>}
                 <ChevronRight size={14} className="text-slate-300" />
               </div>
