@@ -42,9 +42,9 @@ const SEED_COLABORADORES: Colaborador[] = [
 ];
 
 const SEED_USUARIOS: Usuario[] = [
-  { id: "u1", colaboradorId: "col3", email: "admin@laticontrol.com", password: "admin123", group: "Administrador", status: "Ativo", createdAt: "2025-12-01" },
-  { id: "u2", colaboradorId: "col1", email: "joao.silva@laticontrol.com", password: "123456", group: "Promotor de Vendas", status: "Ativo", createdAt: "2026-01-05" },
-  { id: "u3", colaboradorId: "col2", email: "maria.santos@laticontrol.com", password: "123456", group: "Promotor de Vendas", status: "Ativo", createdAt: "2026-01-05" },
+  { id: "u1", colaboradorId: "col3", email: "admin@shelffe.com", password: "admin123", group: "Administrador", status: "Ativo", createdAt: "2025-12-01" },
+  { id: "u2", colaboradorId: "col1", email: "joao.silva@shelffe.com", password: "123456", group: "Promotor de Vendas", status: "Ativo", createdAt: "2026-01-05" },
+  { id: "u3", colaboradorId: "col2", email: "maria.santos@shelffe.com", password: "123456", group: "Promotor de Vendas", status: "Ativo", createdAt: "2026-01-05" },
 ];
 
 const SEED_CLIENTS: Client[] = [
@@ -233,7 +233,7 @@ function WebSidebar({ page, onPage, onLogout }: { page: WebPage; onPage: (p: Web
       <div className="px-5 py-5 border-b border-white/10">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center"><ShoppingBag size={16} className="text-white" /></div>
-          <div><p className="text-white font-bold text-sm leading-tight">LatiControl</p><p className="text-slate-400 text-[10px]">Painel Administrativo</p></div>
+          <div><p className="text-white font-bold text-sm leading-tight">Shelffe</p><p className="text-slate-400 text-[10px]">Painel Administrativo</p></div>
         </div>
       </div>
       <nav className="flex-1 px-3 py-4 flex flex-col gap-0.5 overflow-y-auto">
@@ -855,7 +855,7 @@ function WebAdminApp({ colaboradores, setColaboradores, usuarios, setUsuarios, c
 }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [page, setPage] = useState<WebPage>("dashboard");
-  const [email, setEmail] = useState("admin@laticontrol.com");
+  const [email, setEmail] = useState("admin@shelffe.com");
   const [pwd, setPwd] = useState("");
   const [showPwd, setShowPwd] = useState(false);
   const [loginError, setLoginError] = useState("");
@@ -872,7 +872,7 @@ function WebAdminApp({ colaboradores, setColaboradores, usuarios, setUsuarios, c
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <div className="w-14 h-14 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg"><ShoppingBag size={28} className="text-white" /></div>
-          <h1 className="text-2xl font-bold text-white">LatiControl</h1>
+          <h1 className="text-2xl font-bold text-white">Shelffe</h1>
           <p className="text-slate-400 text-sm mt-1">Painel Administrativo</p>
         </div>
         <div className="bg-white rounded-2xl p-6 shadow-2xl">
@@ -885,7 +885,7 @@ function WebAdminApp({ colaboradores, setColaboradores, usuarios, setUsuarios, c
             </div>
           </div>
           {loginError && <p className="text-red-500 text-xs mb-3">{loginError}</p>}
-          <p className="text-xs text-slate-400 mb-4">Dica: <span className="font-mono">admin@laticontrol.com</span> / <span className="font-mono">admin123</span></p>
+          <p className="text-xs text-slate-400 mb-4">Dica: <span className="font-mono">admin@shelffe.com</span> / <span className="font-mono">admin123</span></p>
           <SaveBtn onPress={handleLogin} label="Entrar no Painel" />
           <button onClick={onBack} className="w-full mt-3 text-sm text-slate-400 hover:text-slate-600 transition-colors">← Voltar à seleção</button>
         </div>
@@ -1382,7 +1382,7 @@ function MobileApp({ colaboradores, usuarios, clientes, produtos, lotes, setLote
   const [loggedInUserId, setLoggedInUserId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState("alertas");
   const [screenStack, setScreenStack] = useState<MobileScreen[]>([{ name: "alertas" }]);
-  const [email, setEmail] = useState("joao.silva@laticontrol.com");
+  const [email, setEmail] = useState("joao.silva@shelffe.com");
   const [pwd, setPwd] = useState("");
   const [showPwd, setShowPwd] = useState(false);
   const [loginError, setLoginError] = useState("");
@@ -1415,7 +1415,7 @@ function MobileApp({ colaboradores, usuarios, clientes, produtos, lotes, setLote
     <div className="flex flex-col h-full bg-slate-800">
       <div className="flex-1 flex flex-col items-center justify-center px-6">
         <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-5 shadow-lg"><ShoppingBag size={32} className="text-white" /></div>
-        <h1 className="text-2xl font-bold text-white mb-1">LatiControl</h1>
+        <h1 className="text-2xl font-bold text-white mb-1">Shelffe</h1>
         <p className="text-slate-400 text-sm mb-10">App do Promotor de Vendas</p>
         <div className="w-full bg-white rounded-2xl p-5 shadow-xl">
           <FormField label="E-mail" value={email} onChange={v => { setEmail(v); setLoginError(""); }} type="email" placeholder="promotor@empresa.com" />
@@ -1427,7 +1427,7 @@ function MobileApp({ colaboradores, usuarios, clientes, produtos, lotes, setLote
             </div>
           </div>
           {loginError && <p className="text-red-500 text-xs mb-3 mt-1">{loginError}</p>}
-          <p className="text-xs text-slate-400 mb-4">Dica: <span className="font-mono">joao.silva@laticontrol.com</span> / <span className="font-mono">123456</span></p>
+          <p className="text-xs text-slate-400 mb-4">Dica: <span className="font-mono">joao.silv@shelffe.com</span> / <span className="font-mono">123456</span></p>
           <SaveBtn onPress={handleLogin} label="Entrar no App" />
           <button onClick={onBack} className="w-full mt-3 text-sm text-slate-400 text-center">← Voltar à seleção</button>
         </div>
@@ -1463,7 +1463,7 @@ function InterfaceSelector({ onSelect }: { onSelect: (v: "web" | "mobile") => vo
     <div className="min-h-screen flex flex-col items-center justify-center p-6" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)" }}>
       <div className="text-center mb-10">
         <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-2xl"><ShoppingBag size={30} className="text-white" /></div>
-        <h1 className="text-3xl font-bold text-white mb-2">LatiControl</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">Shelffe</h1>
         <p className="text-slate-400 text-sm max-w-sm mx-auto">Plataforma de gestão de lotes em pontos de venda</p>
       </div>
       <p className="text-slate-500 text-xs uppercase tracking-widest mb-6 font-semibold">Selecione o ambiente para demonstração</p>
